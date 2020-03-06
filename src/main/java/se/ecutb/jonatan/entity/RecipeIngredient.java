@@ -25,8 +25,10 @@ public class RecipeIngredient {
     @Enumerated
     private Measurement measurement;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "recipe_recipe_id")
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}
+    )
     private Recipe recipe;
 
     public RecipeIngredient() {
@@ -40,8 +42,8 @@ public class RecipeIngredient {
         this.recipe = recipe;
     }
 
-    public RecipeIngredient(Ingredient ingredient, double amount, Measurement measurement, Recipe recipe) {
-        this(null, ingredient, amount, measurement, recipe);
+    public RecipeIngredient(Ingredient ingredient, double amount, Measurement measurement) {
+        this(null, ingredient, amount, measurement, null);
     }
 
     public String getRecipeIngredientId() {

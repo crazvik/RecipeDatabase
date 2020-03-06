@@ -1,8 +1,5 @@
 package se.ecutb.jonatan.entity;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +11,11 @@ public class Recipe {
     private int recipeId;
     private String recipeName;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},
+            mappedBy = "recipe"
+    )
     private List<RecipeIngredient> recipeIngredients;
 
     @OneToOne
@@ -24,7 +24,7 @@ public class Recipe {
 
     @ManyToMany(
             cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY
     )
     @JoinTable(
             name = "recipe_recipe_category",
@@ -36,20 +36,8 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(int recipeId, String recipeName, List<RecipeIngredient> recipeIngredients, RecipeInstruction instruction, List<RecipeCategory> categories) {
-        this.recipeId = recipeId;
+    public Recipe(String recipeName) {
         this.recipeName = recipeName;
-        this.recipeIngredients = recipeIngredients;
-        this.instruction = instruction;
-        this.categories = categories;
-    }
-
-    public Recipe(String recipeName, List<RecipeIngredient> recipeIngredients, RecipeInstruction instruction, List<RecipeCategory> categories) {
-        this(0, recipeName, recipeIngredients, instruction, categories);
-    }
-
-    public Recipe(String recipeName, RecipeInstruction instruction) {
-        this(0, recipeName, null, instruction, null);
     }
 
     public int getRecipeId() {
@@ -69,18 +57,26 @@ public class Recipe {
     }
 
     public List<RecipeIngredient> getRecipeIngredients() {
-        if(recipeIngredients==null) recipeIngredients = new ArrayList<>();
         return recipeIngredients;
     }
 
-    public void setRecipeIngredients(List<RecipeIngredient> ingredient) {
-        this.recipeIngredients = ingredient;
+    public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
+        this.recipeIngredients = recipeIngredients;
     }
 
-    public void removeRecipeIngredients(RecipeIngredient ingredient) {
-        if(recipeIngredients.contains(ingredient)) {
-            recipeIngredients.remove(ingredient);
+    public boolean addIngredient(RecipeIngredient recipeIngredient) {
+        if (recipeIngredient.getRecipe() != null){
+            return false;
         }
+        recipeIngredient.setRecipe(this);
+        return recipeIngredients.add(recipeIngredient);
+    }
+
+    public boolean removeIngredient(RecipeIngredient recipeIngredient) {
+        if(recipeIngredient.getRecipe()==null) return false;
+        if(recipeIngredient.getRecipe()!=this) return false;
+        recipeIngredient.setRecipe(null);
+        return recipeIngredients.remove(recipeIngredient);
     }
 
     public RecipeInstruction getInstruction() {
@@ -91,16 +87,13 @@ public class Recipe {
         this.instruction = instruction;
     }
 
-    public List<RecipeCategory> getCategories() {
-        if (categories==null) categories = new ArrayList<>();
-        return categories;
+    public List<RecipeCategory> getCategories() { return categories; }
+
+    public void setCategories(List<RecipeCategory> categories) {
+        this.categories = categories;
     }
 
-    public void setCategories(List<RecipeCategory> category) {
-        this.categories = category;
-    }
-
-    public boolean addStatusCode(RecipeCategory category){
+    public boolean addRecipeCategory(RecipeCategory category){
         if(categories == null) categories = new ArrayList<>();
         if(category == null) return false;
         if(categories.contains(category)){
@@ -108,12 +101,6 @@ public class Recipe {
         }
         categories.add(category);
         return true;
-    }
-
-    public boolean removeCategories(RecipeCategory category) {
-        if(categories==null) categories = new ArrayList<>();
-        if(category==null) return false;
-        return categories.remove(category);
     }
 
     @Override

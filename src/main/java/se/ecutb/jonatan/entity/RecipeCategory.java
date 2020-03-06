@@ -1,19 +1,19 @@
 package se.ecutb.jonatan.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class RecipeCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
-    private String category;
+    private String categoryName;
 
     @ManyToMany(
-            cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH},
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH}
     )
     @JoinTable(
             name = "recipe_recipe_category",
@@ -24,14 +24,13 @@ public class RecipeCategory {
 
     RecipeCategory() {}
 
-    public RecipeCategory(int categoryId, String category, List<Recipe> recipes) {
+    public RecipeCategory(int categoryId, String categoryName) {
         this.categoryId = categoryId;
-        this.category = category;
-        this.recipes = recipes;
+        this.categoryName = categoryName;
     }
 
-    public RecipeCategory(String category, List<Recipe> recipes) {
-        this(0, category, null);
+    public RecipeCategory(String categoryName) {
+        this(0, categoryName);
     }
 
     public int getCategoryId() {
@@ -43,33 +42,46 @@ public class RecipeCategory {
     }
 
     public String getCategory() {
-        return category;
+        return categoryName;
     }
 
     public void setCategory(String category) {
-        this.category = category;
+        this.categoryName = category;
     }
 
-    public List<Recipe> getRecipes() {
-        if (recipes==null) recipes = new ArrayList<>();
-        return recipes;
+    public List<Recipe> getRecipes() { return recipes; }
+
+    public boolean addRecipe(Recipe recipe) {
+        if(recipe==null) return false;
+        if (recipes.contains(recipe)) return false;
+        return recipes.add(recipe);
     }
 
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
+    public boolean removeRecipe(Recipe recipe) {
+        if(recipe==null) return false;
+        return recipes.remove(recipe);
     }
 
-    public void removeRecipes(Recipe recipe) {
-        if (recipes.contains(recipe)) {
-            recipes.remove(recipe);
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RecipeCategory that = (RecipeCategory) o;
+        return categoryId == that.categoryId &&
+                Objects.equals(categoryName, that.categoryName) &&
+                Objects.equals(recipes, that.recipes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(categoryId, categoryName);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("RecipeCategory{");
         sb.append("categoryId=").append(categoryId);
-        sb.append(", category='").append(category).append('\'');
+        sb.append(", category='").append(categoryName).append('\'');
         sb.append('}');
         return sb.toString();
     }
