@@ -99,7 +99,18 @@ public class RecipeDaoImpl implements RecipeDao {
     }
 
     @Override
-    public List<Recipe> findByMultipleCategories() {
-        return null;
+    public List<Recipe> findByMultipleCategories(List<RecipeCategory> categories) {
+        List<Recipe> wantedRecipes = new ArrayList<>();
+        int count=0;
+        for (Recipe recipe:
+             readAll()) {
+            for (RecipeCategory category:
+                 categories) {
+                if (recipe.getCategories().contains(category)) {
+                    wantedRecipes.add(recipe);
+                }
+            }
+        }
+        return wantedRecipes;
     }
 }

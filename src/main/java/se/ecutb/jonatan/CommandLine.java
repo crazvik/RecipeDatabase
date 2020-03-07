@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.*;
 import se.ecutb.jonatan.repository.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @Service
@@ -296,6 +298,20 @@ public class CommandLine implements CommandLineRunner {
                             }
                             break;
                         case 6:
+                            List<RecipeCategory> categories = new ArrayList<>();
+                            System.out.println("Enter how many categories you want to look for and their indexes: ");
+                            i=0;
+                            for (RecipeCategory category : recipeCategoryDao.readAll()) {
+                                System.out.println(i++ + " " + category);
+                            }
+                            choice = Integer.parseInt(scanner.nextLine());
+                            for (i=0; i<choice; i++) {
+                                categories.add(recipeCategoryDao.readAll().get(Integer.parseInt(scanner.nextLine())));
+                            }
+                            for (Recipe recipe:
+                                    recipeDao.findByMultipleCategories(categories)) {
+                                System.out.println(recipe);
+                            }
                             break;
                         case 7:
                             break;
