@@ -1,0 +1,49 @@
+package se.ecutb.jonatan.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import se.ecutb.jonatan.entity.Ingredient;
+import se.ecutb.jonatan.entity.Measurement;
+import se.ecutb.jonatan.entity.RecipeIngredient;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import java.util.List;
+
+@Service
+public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
+    private EntityManager entityManager;
+
+    @Autowired
+    public RecipeIngredientDaoImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    public RecipeIngredient createAndSave(int ingredientId, double amount, Measurement measurement) {
+        RecipeIngredient newRecipeIngredient = new RecipeIngredient(entityManager.find(Ingredient.class, ingredientId),
+                amount, measurement);
+        entityManager.persist(newRecipeIngredient);
+        return newRecipeIngredient;
+    }
+
+    @Override
+    public List<RecipeIngredient> readAll() {
+        Query query = entityManager.createQuery("SELECT recipeIngredient FROM RecipeIngredient recipeIngredient", RecipeIngredient.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public RecipeIngredient update(int index, double amount, Measurement measurement) {
+        RecipeIngredient updatedRecipeIngredient = readAll().get(index);
+        updatedRecipeIngredient.setAmount(amount);
+        updatedRecipeIngredient.setMeasurement(measurement);
+        entityManager.merge(updatedRecipeIngredient);
+        return updatedRecipeIngredient;
+    }
+
+    @Override
+    public void delete(int index) {
+        entityManager.remove(readAll().get(index));
+    }
+}

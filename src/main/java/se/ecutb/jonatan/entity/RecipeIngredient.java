@@ -46,6 +46,10 @@ public class RecipeIngredient {
         this(null, ingredient, amount, measurement, null);
     }
 
+    public RecipeIngredient(double amount, Measurement measurement) {
+        this(null, null, amount, measurement, null);
+    }
+
     public String getRecipeIngredientId() {
         return recipeIngredientId;
     }
