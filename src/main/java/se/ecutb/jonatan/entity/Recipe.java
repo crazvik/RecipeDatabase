@@ -66,7 +66,7 @@ public class Recipe {
     }
 
     public boolean addIngredient(RecipeIngredient recipeIngredient) {
-        if (recipeIngredient.getRecipe() != null){
+        if (recipeIngredient.getRecipe() != null) {
             return false;
         }
         recipeIngredient.setRecipe(this);

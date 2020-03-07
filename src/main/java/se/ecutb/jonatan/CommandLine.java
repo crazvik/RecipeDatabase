@@ -53,7 +53,10 @@ public class CommandLine implements CommandLineRunner {
                             "Type 3 to create a number of ingredients\n" +
                             "Type 4 to create a number of recipe ingredients\n" +
                             "Type 5 to create a number of recipes\n" +
-                            "Type 6 to go back" +
+                            "Type 6 to add categories to a recipe\n" +
+                            "Type 7 to add ingredients to a recipe\n" +
+                            "Type 8 to add an instruction to a recipe\n" +
+                            "Type 9 to go back" +
                             "\n----------------------------------------------");
                     choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
@@ -88,7 +91,7 @@ public class CommandLine implements CommandLineRunner {
                                 System.out.println("Enter the id of the wanted ingredient, a new amount and one of following measurements: (L, DL, CL, ML,\n" +
                                         "KG, HG ,G, ST, MSK, TSK): ");
                                 System.out.println(recipeIngredientDao.createAndSave(Integer.parseInt(scanner.nextLine()), Double.parseDouble(scanner.nextLine()),
-                                        Measurement.valueOf(scanner.nextLine())));
+                                        Measurement.valueOf(scanner.nextLine().toUpperCase())));
                             }
                             break;
                         case 5:
@@ -100,6 +103,42 @@ public class CommandLine implements CommandLineRunner {
                             }
                             break;
                         case 6:
+                            System.out.println("Enter the id of the recipe you want to add categories to");
+                            int subChoice = Integer.parseInt(scanner.nextLine());
+                            System.out.println("How many categories do you want to add the recipe to?: ");
+                            choice = Integer.parseInt(scanner.nextLine());
+                            for (i = 0; i < choice; i++) {
+                                System.out.println("Enter the id of the category to add the recipe to");
+                                recipeDao.addRecipeCategory(subChoice, Integer.parseInt(scanner.nextLine()));
+                            }
+                            break;
+                        case 7:
+                            System.out.println("Enter the id of the recipe you want to add ingredients to: ");
+                            subChoice = Integer.parseInt(scanner.nextLine());
+                            System.out.println("How many ingredients do you want to add?: ");
+                            choice = Integer.parseInt(scanner.nextLine());
+                            i=0;
+                            for (RecipeIngredient recipeIngredient :
+                                    recipeIngredientDao.readAll()) {
+                                System.out.println(i++ + " " + recipeIngredient.toString());
+                            }
+                            System.out.println("\nEnter the index of the ingredient to add: ");
+                            for(i=0; i<choice; i++) {
+                                recipeDao.addRecipeIngredient(subChoice, recipeIngredientDao.readAll().get(Integer.parseInt(scanner.nextLine())));
+                            }
+                            break;
+                        case 8:
+                            System.out.println("Enter the id of the recipe you want to add an instruction to: ");
+                            subChoice = Integer.parseInt(scanner.nextLine());
+                            i=0;
+                            for (RecipeInstruction instruction :
+                                    recipeInstructionDao.readAll()) {
+                                System.out.println(i++ + " " + instruction.toString());
+                            }
+                            System.out.println("\nEnter the index of the instruction to add: ");
+                            recipeDao.addRecipeInstruction(subChoice, recipeInstructionDao.readAll().get(Integer.parseInt(scanner.nextLine())));
+                            break;
+                        case 9:
                             break;
                         default:
                             System.out.println("Not a valid input");

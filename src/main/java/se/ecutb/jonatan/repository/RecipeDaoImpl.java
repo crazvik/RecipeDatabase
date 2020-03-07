@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import se.ecutb.jonatan.entity.Recipe;
 import se.ecutb.jonatan.entity.RecipeCategory;
 import se.ecutb.jonatan.entity.RecipeIngredient;
+import se.ecutb.jonatan.entity.RecipeInstruction;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -44,6 +45,28 @@ public class RecipeDaoImpl implements RecipeDao {
     @Override
     public void delete(int id) {
         entityManager.remove(entityManager.find(Recipe.class, id));
+    }
+
+    @Override
+    public void addRecipeCategory(int recipeId, int categoryId) {
+        Recipe recipe = entityManager.find(Recipe.class, recipeId);
+        RecipeCategory category = entityManager.find(RecipeCategory.class, categoryId);
+        recipe.addRecipeCategory(category);
+        entityManager.merge(recipe);
+    }
+
+    @Override
+    public void addRecipeIngredient(int recipeId, RecipeIngredient recipeIngredient) {
+        Recipe recipe = entityManager.find(Recipe.class, recipeId);
+        recipe.addIngredient(recipeIngredient);
+        entityManager.merge(recipe);
+    }
+
+    @Override
+    public void addRecipeInstruction(int recipeId, RecipeInstruction recipeInstruction) {
+        Recipe recipe = entityManager.find(Recipe.class, recipeId);
+        recipe.setInstruction(recipeInstruction);
+        entityManager.merge(recipe);
     }
 
     @Override

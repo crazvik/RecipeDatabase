@@ -2,6 +2,8 @@ package se.ecutb.jonatan.repository;
 
 import se.ecutb.jonatan.entity.Recipe;
 import se.ecutb.jonatan.entity.RecipeCategory;
+import se.ecutb.jonatan.entity.RecipeIngredient;
+import se.ecutb.jonatan.entity.RecipeInstruction;
 
 import java.util.List;
 
@@ -10,6 +12,10 @@ public interface RecipeDao {
     List<Recipe> readAll();
     Recipe update(int id, String name);
     void delete(int id);
+    void addRecipeCategory(int recipeId, int categoryId);
+    void addRecipeIngredient(int recipeId, RecipeIngredient recipeIngredient);
+    void addRecipeInstruction(int recipeId, RecipeInstruction recipeInstruction);
+
     List<Recipe> findByPartOfName(String partOfName);
     List<Recipe> findByContainedIngredients(String ingredientName);
     List<Recipe> findBySpecificCategory(String categoryName);
