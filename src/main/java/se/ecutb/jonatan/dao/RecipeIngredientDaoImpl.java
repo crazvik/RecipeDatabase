@@ -8,13 +8,11 @@ import se.ecutb.jonatan.entity.Measurement;
 import se.ecutb.jonatan.entity.RecipeIngredient;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
 @Repository
 public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
-    @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
@@ -23,17 +21,19 @@ public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public RecipeIngredient createAndSave(int ingredientId, double amount, Measurement measurement) {
         RecipeIngredient newRecipeIngredient = new RecipeIngredient(entityManager.find(Ingredient.class, ingredientId),
                 amount, measurement);
         entityManager.persist(newRecipeIngredient);
+        entityManager.close();
         return newRecipeIngredient;
     }
 
     @Override
     public List<RecipeIngredient> readAll() {
         Query query = entityManager.createQuery("SELECT recipeIngredient FROM RecipeIngredient recipeIngredient", RecipeIngredient.class);
+        entityManager.close();
         return query.getResultList();
     }
 
@@ -44,11 +44,13 @@ public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
         updatedRecipeIngredient.setAmount(amount);
         updatedRecipeIngredient.setMeasurement(measurement);
         entityManager.merge(updatedRecipeIngredient);
+        entityManager.close();
         return updatedRecipeIngredient;
     }
 
     @Override
     public void delete(int index) {
         entityManager.remove(readAll().get(index));
+        entityManager.close();
     }
 }

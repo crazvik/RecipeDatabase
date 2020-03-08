@@ -4,32 +4,23 @@
     <list default="true" id="4004d261-493f-49d1-9efc-3763e3ec14fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/CommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/CommandLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/entity/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/entity/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/IngredientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/IngredientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeCategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeCategoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeIngredientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeIngredientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeInstructionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/repository/RecipeInstructionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/ecutb/jonatan/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/CommandLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/CommandLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/entity/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/entity/Recipe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/IngredientDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/IngredientDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeCategoryDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeCategoryDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeIngredientDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeIngredientDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeInstructionDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/repository/RecipeInstructionDaoImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/se/ecutb/jonatan/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/IngredientDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeCategoryDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeIngredientDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/ecutb/jonatan/dao/RecipeInstructionDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/ecutb/jonatan/dao/IngredientDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/IngredientDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/IngredientDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeCategoryDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeCategoryDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeIngredientDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeIngredientDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeInstructionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/se/ecutb/jonatan/dao/RecipeInstructionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/se/ecutb/jonatan/dao/IngredientDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/se/ecutb/jonatan/dao/IngredientDaoTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +80,7 @@
       <recent name="se.ecutb.jonatan.service" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="se.ecutb.jonatan.dao" />
       <recent name="se.ecutb.jonatan" />
       <recent name="se.ecutb.jonatan.repository" />
     </key>
@@ -110,7 +102,7 @@
       <recent name="se.ecutb.jonatan.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IngredientDaoTest.createAndSave">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="se.ecutb.jonatan.Main" />
       <module name="RecipeDatabase" />
@@ -129,6 +121,22 @@
       <option name="PACKAGE_NAME" value="se.ecutb.jonatan.dao" />
       <option name="MAIN_CLASS_NAME" value="se.ecutb.jonatan.dao.IngredientDaoTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IngredientDaoTest.createAndSave (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RecipeDatabase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.ecutb.jonatan.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.ecutb.jonatan.dao" />
+      <option name="MAIN_CLASS_NAME" value="se.ecutb.jonatan.dao.IngredientDaoTest" />
+      <option name="METHOD_NAME" value="createAndSave(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.IngredientDaoTest.createAndSave" />
-        <item itemvalue="JUnit.IngredientDaoTest" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.contextLoads" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.IngredientDaoTest" />
+        <item itemvalue="JUnit.IngredientDaoTest.createAndSave" />
+        <item itemvalue="JUnit.IngredientDaoTest.createAndSave (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -208,14 +216,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583260617139" />
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1583609863992">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1583678823557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583609863992" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583678823557" />
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583260568663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583260568663" />
+    <state x="756" y="379" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583679238551">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="379" width="408" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583679238551" />
     <state x="614" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583578509773">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -228,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583505277199" />
-    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583596711769">
+    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583679721614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583596711769" />
+    <state x="718" y="382" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583679721614" />
     <state width="439" height="466" key="DebuggerActiveHint" timestamp="1583315965471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -244,22 +256,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583250597249" />
-    <state width="1877" height="385" key="GridCell.Tab.0.bottom" timestamp="1583667403408">
+    <state width="1877" height="385" key="GridCell.Tab.0.bottom" timestamp="1583685928677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583667403408" />
-    <state width="1877" height="385" key="GridCell.Tab.0.center" timestamp="1583667403407">
+    <state width="1877" height="385" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583685928677" />
+    <state width="1877" height="385" key="GridCell.Tab.0.center" timestamp="1583685928677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583667403407" />
-    <state width="1877" height="385" key="GridCell.Tab.0.left" timestamp="1583667403407">
+    <state width="1877" height="385" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583685928677" />
+    <state width="1877" height="385" key="GridCell.Tab.0.left" timestamp="1583685928677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583667403407" />
-    <state width="1877" height="385" key="GridCell.Tab.0.right" timestamp="1583667403408">
+    <state width="1877" height="385" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583685928677" />
+    <state width="1877" height="385" key="GridCell.Tab.0.right" timestamp="1583685928677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="385" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583667403408" />
+    <state width="1877" height="385" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583685928677" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1583666400457">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -292,10 +304,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="664" y="413" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583250626641" />
-    <state x="731" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1583667282826">
+    <state x="731" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1583679256999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="731" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583667282826" />
+    <state x="731" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583679256999" />
     <state x="536" y="256" width="847" height="602" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1583260488984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -312,16 +324,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583612043002" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/se/ecutb/jonatan/dao/IngredientDaoTest.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

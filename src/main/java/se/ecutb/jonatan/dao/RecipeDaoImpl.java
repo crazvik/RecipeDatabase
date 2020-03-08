@@ -9,14 +9,12 @@ import se.ecutb.jonatan.entity.RecipeIngredient;
 import se.ecutb.jonatan.entity.RecipeInstruction;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class RecipeDaoImpl implements RecipeDao {
-    @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
@@ -25,16 +23,18 @@ public class RecipeDaoImpl implements RecipeDao {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = RuntimeException.class)
     public Recipe createAndSave(String name) {
         Recipe newRecipe = new Recipe(name);
         entityManager.persist(newRecipe);
+        entityManager.close();
         return newRecipe;
     }
 
     @Override
     public List<Recipe> readAll() {
         Query query = entityManager.createQuery("SELECT recipe FROM Recipe recipe", Recipe.class);
+        entityManager.close();
         return query.getResultList();
     }
 
@@ -44,6 +44,7 @@ public class RecipeDaoImpl implements RecipeDao {
         Recipe updatedRecipe = entityManager.find(Recipe.class, id);
         updatedRecipe.setRecipeName(name);
         entityManager.merge(updatedRecipe);
+        entityManager.close();
         return updatedRecipe;
     }
 
@@ -57,6 +58,7 @@ public class RecipeDaoImpl implements RecipeDao {
         Recipe recipe = entityManager.find(Recipe.class, recipeId);
         RecipeCategory category = entityManager.find(RecipeCategory.class, categoryId);
         recipe.addRecipeCategory(category);
+        entityManager.close();
         entityManager.merge(recipe);
     }
 
@@ -65,6 +67,7 @@ public class RecipeDaoImpl implements RecipeDao {
         Recipe recipe = entityManager.find(Recipe.class, recipeId);
         recipe.addIngredient(recipeIngredient);
         entityManager.merge(recipe);
+        entityManager.close();
     }
 
     @Override
@@ -72,6 +75,7 @@ public class RecipeDaoImpl implements RecipeDao {
         Recipe recipe = entityManager.find(Recipe.class, recipeId);
         recipe.setInstruction(recipeInstruction);
         entityManager.merge(recipe);
+        entityManager.close();
     }
 
     @Override
@@ -83,6 +87,7 @@ public class RecipeDaoImpl implements RecipeDao {
                 wantedRecipes.add(recipe);
             }
         }
+        entityManager.close();
         return wantedRecipes;
     }
 
@@ -103,6 +108,7 @@ public class RecipeDaoImpl implements RecipeDao {
             }
             i++;
         }
+        entityManager.close();
         return wantedRecipes;
     }
 
@@ -123,6 +129,7 @@ public class RecipeDaoImpl implements RecipeDao {
             }
             i++;
         }
+        entityManager.close();
         return wantedRecipes;
     }
 
@@ -139,6 +146,7 @@ public class RecipeDaoImpl implements RecipeDao {
                 }
             }
         }
+        entityManager.close();
         return wantedRecipes;
     }
 }

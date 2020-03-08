@@ -1,10 +1,12 @@
 package se.ecutb.jonatan.dao;
 
+import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.Ingredient;
 
 import java.util.List;
 
 public interface IngredientDao {
+    @Transactional(rollbackFor = RuntimeException.class)
     Ingredient createAndSave(String name);
     List<Ingredient> readAll();
     Ingredient update(int id, String name);

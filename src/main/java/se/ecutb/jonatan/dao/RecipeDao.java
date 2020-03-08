@@ -1,5 +1,6 @@
 package se.ecutb.jonatan.dao;
 
+import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.Recipe;
 import se.ecutb.jonatan.entity.RecipeCategory;
 import se.ecutb.jonatan.entity.RecipeIngredient;
@@ -8,6 +9,7 @@ import se.ecutb.jonatan.entity.RecipeInstruction;
 import java.util.List;
 
 public interface RecipeDao {
+    @Transactional(rollbackFor = RuntimeException.class)
     Recipe createAndSave(String name);
     List<Recipe> readAll();
     Recipe update(int id, String name);
