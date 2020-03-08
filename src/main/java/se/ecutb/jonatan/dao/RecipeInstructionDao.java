@@ -1,4 +1,4 @@
-package se.ecutb.jonatan.repository;
+package se.ecutb.jonatan.dao;
 
 import se.ecutb.jonatan.entity.RecipeInstruction;
 

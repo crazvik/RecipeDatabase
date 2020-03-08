@@ -1,17 +1,20 @@
-package se.ecutb.jonatan.repository;
+package se.ecutb.jonatan.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.Ingredient;
 import se.ecutb.jonatan.entity.Measurement;
 import se.ecutb.jonatan.entity.RecipeIngredient;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@Service
+@Repository
 public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
@@ -20,6 +23,7 @@ public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
     }
 
     @Override
+    @Transactional
     public RecipeIngredient createAndSave(int ingredientId, double amount, Measurement measurement) {
         RecipeIngredient newRecipeIngredient = new RecipeIngredient(entityManager.find(Ingredient.class, ingredientId),
                 amount, measurement);
@@ -34,6 +38,7 @@ public class RecipeIngredientDaoImpl implements RecipeIngredientDao {
     }
 
     @Override
+    @Transactional
     public RecipeIngredient update(int index, double amount, Measurement measurement) {
         RecipeIngredient updatedRecipeIngredient = readAll().get(index);
         updatedRecipeIngredient.setAmount(amount);

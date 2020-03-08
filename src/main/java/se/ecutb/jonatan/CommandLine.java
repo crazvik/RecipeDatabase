@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.*;
-import se.ecutb.jonatan.repository.*;
+import se.ecutb.jonatan.dao.*;
 
 import java.util.ArrayList;
 import java.util.List;

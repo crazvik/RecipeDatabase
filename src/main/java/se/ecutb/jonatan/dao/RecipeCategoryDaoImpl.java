@@ -1,15 +1,18 @@
-package se.ecutb.jonatan.repository;
+package se.ecutb.jonatan.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import se.ecutb.jonatan.entity.RecipeCategory;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-@Service
+@Repository
 public class RecipeCategoryDaoImpl implements RecipeCategoryDao {
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
@@ -18,6 +21,7 @@ public class RecipeCategoryDaoImpl implements RecipeCategoryDao {
     }
 
     @Override
+    @Transactional
     public RecipeCategory createAndSave(String name) {
         RecipeCategory newCategory = new RecipeCategory(name);
         entityManager.persist(newCategory);
@@ -31,6 +35,7 @@ public class RecipeCategoryDaoImpl implements RecipeCategoryDao {
     }
 
     @Override
+    @Transactional
     public RecipeCategory update(int id, String name) {
         RecipeCategory updatedCategory = entityManager.find(RecipeCategory.class, id);
         updatedCategory.setCategory(name);
