@@ -42,7 +42,8 @@ public class CommandLine implements CommandLineRunner {
                     "Type 2 to see all table rows\n" +
                     "Type 3 to update table rows\n" +
                     "Type 4 to delete table by id or index\n" +
-                    "Type 5 to quit" +
+                    "Type 5 to find recipes or ingredients\n" +
+                    "Type 6 to quit" +
                     "\n----------------------------------------------");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -362,67 +363,7 @@ public class CommandLine implements CommandLineRunner {
                     keepGoing = false;
                     break;
             }
-            break;
         }
     scanner.close();
     }
 }
-
-/*
-System.out.println("Enter the id of the recipe you want to update: ");
-                            Recipe updatedRecipe = entityManager.find(Recipe.class, Integer.parseInt(scanner.nextLine()));
-                            System.out.println("Enter the new recipe name: ");
-                            updatedRecipe.setRecipeName(scanner.nextLine());
-                            query = entityManager.createQuery("SELECT recipeIngredient FROM RecipeIngredient recipeIngredient", RecipeIngredient.class);
-                            recipeIngredients = query.getResultList();
-                            System.out.println("Do you want to add a new recipe ingredient or an existing one?" +
-                                    "\nType 1 for new" +
-                                    "\nType 2 for existing (will overwrite another recipe)");
-                            int subChoice = Integer.parseInt(scanner.nextLine());
-                            switch (subChoice) {
-                                case 1:
-                                    System.out.println("How many ingredients do you want to add?: ");
-                                    subChoice = Integer.parseInt(scanner.nextLine());
-                                    for(i=0; i<subChoice; i++) {
-                                        System.out.println("Enter the id of the ingredient to add, amount, one of following measurements: (L, DL, CL, ML,\n" +
-                                                "KG, HG ,G, ST, MSK, TSK): ");
-                                        RecipeIngredient newRecipeIngredient = new RecipeIngredient(entityManager.find(Ingredient.class, Integer.parseInt(scanner.nextLine())),
-                                                Double.parseDouble(scanner.nextLine()),
-                                                Measurement.valueOf(scanner.nextLine().toUpperCase()));
-                                        updatedRecipe.addIngredient(newRecipeIngredient);
-                                    }
-                                    break;
-                                case 2:
-                                    i = 0;
-                                    for (RecipeIngredient recipeIngredient :
-                                            recipeIngredients) {
-                                        System.out.println(i++ + " " + recipeIngredient.toString());
-                                    }
-                                    System.out.println("Enter the index of the ingredient to add: ");
-                                    updatedRecipe.addIngredient(recipeIngredients.get(Integer.parseInt(scanner.nextLine())));
-                                    break;
-                                default:
-                                    System.out.println("Not a valid input");
-                            }
-                            query = entityManager.createQuery("SELECT instruction FROM RecipeInstruction instruction", RecipeInstruction.class);
-                            instructions = query.getResultList();
-                            i = 0;
-                            for (RecipeInstruction instruction :
-                                    instructions) {
-                                System.out.println(i++ + " " + instruction.toString());
-                            }
-                            System.out.println("Enter the index of the instruction to add: ");
-                            updatedRecipe.setInstruction(instructions.get(Integer.parseInt(scanner.nextLine())));
-                            System.out.println("How many categories do you want to add?: ");
-                            subChoice = Integer.parseInt(scanner.nextLine());
-                            for (i = 0; i < subChoice; i++) {
-                                RecipeCategory newCategory = new RecipeCategory(scanner.nextLine());
-                                updatedRecipe.addRecipeCategory(newCategory);
-                            }
-                            entityManager.merge(updatedRecipe);
-
-
-
-                            System.out.println(ingredientRepository.findByName(scanner.nextLine()).toString());
-                            System.out.println(ingredientService.findByPartOfName(scanner.nextLine()).toString());
- */
